@@ -25,6 +25,7 @@ License: Revised BSD License, see LICENSE.TXT file include in the project
 
 #define _GNU_SOURCE     /* needed for qsort_r to be defined */
 #include <stdlib.h>     /* qsort_r */
+#include "libc_utils.h" /* needed for qsort_r to be defined */
 
 #include <stdint.h>     /* C99 types */
 #include <stdbool.h>    /* bool type */
