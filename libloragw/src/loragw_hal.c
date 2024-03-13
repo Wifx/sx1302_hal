@@ -204,13 +204,13 @@ FILE * log_file = NULL;
 
 /* I2C temperature sensor handles */
 static int     ts_fd = -1;
-static uint8_t ts_addr = 0xFF;
+static uint8_t ts_addr = 0x39;
 
 /* I2C AD5338 handles */
 static int     ad_fd = -1;
 
 /* I2C device */
-static char i2c_device[50];
+static char i2c_device[50] = "/dev/i2c-1";
 
 /* -------------------------------------------------------------------------- */
 /* --- PRIVATE FUNCTIONS DECLARATION ---------------------------------------- */
@@ -1116,6 +1116,8 @@ int lgw_start(void) {
                 printf("INFO: no temperature sensor found on port 0x%02X\n", ts_addr);
                 i2c_linuxdev_close(ts_fd);
                 ts_fd = -1;
+            } else {
+                printf("INFO: found temperature sensor on port 0x%02X\n", ts_addr);
             }
         }
 
